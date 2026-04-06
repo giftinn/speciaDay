@@ -289,7 +289,7 @@ Points: <span id="score">0</span> / 3
 <!-- final -->
 <section class="card">
 
-<h1>To my husband who’s a little far from me right now…</h1>
+<h1>To my love who’s a little far from me right now…</h1>
 
 <div class="lovebox">
 <div class="timer-title">TIME WITH YOU</div>
@@ -334,7 +334,7 @@ if(page===2)loadQuestion();
 
 /* PIN */
 let pinInput='';
-const correctPin='0102';
+const correctPin='2426';
 const pinDisplay=document.getElementById("pin");
 
 function renderDots(){
@@ -360,9 +360,9 @@ pinInput='';renderDots();
 
 /* QUIZ */
 const questions=[
-{q:"Warna kesukaan kita?",options:["Pink","Navy","Hitam"],correct:1},
-{q:"MBTI aku apa?",options:["ENTJ","ESFJ","ENFP"],correct:2},
-{q:"Siapa yang lebih clingy kaya bayi?",options:["Reika","Steven","Dua-duanya"],correct:1}
+{q:"kapan kita bertemu?",options:["februari","april","maret"],correct:1},
+{q:"kapan kamu mulai jatuh cinta sama aku?",options:["awal bertemu","pas udah pacaran","semuanya benar"],correct:2},
+{q:"Siapa aku dikehidupan kamu?",options:["girlfriend","partner for life","all is true"],correct:2}
 ];
 
 let currentQ=0,score=0;
@@ -421,17 +421,21 @@ function getDiff(start, timeZone){
 }
 
 function startTimer(){
-  const startDate = new Date("2026-02-15T00:00:00");
 
-  setInterval(()=>{
-    const jakarta = getDiff(startDate,"Asia/Jakarta");
-    const aus = getDiff(startDate,"Australia/Sydney");
+    const start = new Date("2025-11-06T00:00:00");
 
-    loveTimer.innerHTML = `
-      🇮🇩 ${jakarta.d}d ${jakarta.h}h ${jakarta.m}m ${jakarta.s}s<br>
-      🇦🇺 ${aus.d}d ${aus.h}h ${aus.m}m ${aus.s}s
-    `;
-  },1000);
+    setInterval(()=>{
+
+        const diff = new Date() - start;
+
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor(diff / 3600000) % 24;
+        const m = Math.floor(diff / 60000) % 60;
+        const s = Math.floor(diff / 1000) % 60;
+
+        loveTimer.textContent = `${d} days ${h}h ${m}m ${s}s`;
+
+    },1000);
 }
 
 startTimer();
@@ -440,27 +444,10 @@ startTimer();
 function revealMemory(el){
 el.innerHTML=`<img src="p.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:18px">`;
 
-const text=`sekarang kamu udah landing di Brisbane. mungkin lagi jalan keluar bandara, ambil bagasi, atau lagi baca ini sambil nunggu lanjut perjalanan ke Yeppoon. aku dari tadi cuma bisa kirim doa yang banyak banget supaya Steven sampai dengan selamat, hatinya tenang, pikirannya tetap ringan. dan sekarang kamu udah mendarat… lega banget rasanya.
+const text=`
 
-semoga perjalanan kamu lanjut dari Brisbane ke Yeppoon juga lancar ya, Sayangku. semoga jalannya aman, nggak ada apa-apa, badan kamu tetap fit, dan kamu sampai dengan selamat sampai tujuan. aku doain dari kamu turun pesawat sampai benar-benar tiba di Yeppoon, semuanya dijaga.
 
-aku kepikiran terus kalau tanggal 5 kamu mulai kerja lagi. dapurnya memang udah lama kamu kenal, kamu tau alurnya, tau ritmenya. tapi sekarang collague kamu baru. pasti rasanya tetap beda ya, Bayi aku. adaptasi lagi, baca karakter orang lagi, bangun teamwork lagi dari awal. tapi aku tau kamu bisa. kamu itu profesional, sabar, dan nggak egois di dapur. kamu selalu pilih kerja yang rapi daripada sekadar cepat. jujur, aku bangga banget sama cara kamu kerja.
-
-semangat ya masuk dapur lagi nanti. semoga tim barunya bisa klik sama kamu, bisa saling dukung, dan service-nya lancar. semoga setiap plating kamu keluar cantik dan konsisten. aku tau kamu selalu total kalau udah pakai apron dan berdiri di depan kompor.
-
-makasih ya, Steven. makasih karena kamu sayangin aku setiap hari, bukan cuma lewat kata-kata tapi lewat tindakan kecil yang konsisten. kamu selalu ada, selalu ngecek aku, selalu bikin aku ngerasa dipilih. itu nggak pernah aku anggap hal biasa.
-
-dan terima kasih juga untuk semua perhatian kamu yang sering datang tiba-tiba. kamu tau kan maksud aku. hal-hal kecil yang kamu lakuin itu bikin aku ngerasa dijaga dan dipikirin. bukan soal apa yang dikasih, tapi karena itu nunjukin kamu peduli dan mau usaha buat aku. aku hargai banget itu, Sayangku.
-
-aku juga minta maaf kalau aku kadang masih sering marah, overthinking, nggak ngertiin kamu, atau kebanyakan takut. kadang rasa sayang aku kebesaran sampai berubah jadi cemas sendiri. maafin aku ya kalau emosiku pernah bikin kamu capek. aku lagi belajar jadi lebih dewasa, lebih tenang, dan lebih percaya.
-
-walaupun kita masih virtual dan belum pernah ketemu, aku nggak pernah ngerasa ini main-main. justru dari jarak sejauh ini aku bisa lihat seberapa serius kamu, dan seberapa serius aku. kita sama-sama bertahan bukan karena gampang, tapi karena kita mau.
-
-aku cuma mau kamu tau satu hal yang jelas banget: aku akan sama kamu selama kamu juga mau sama aku. aku nggak setengah-setengah. aku nggak main-main. aku milih kamu setiap hari.
-
-jadi sekarang, dari Brisbane sampai Yeppoon nanti… hati-hati di jalan ya, Bayi aku. kabarin aku kalau sudah benar-benar sampai. aku di sini selalu doa dan selalu dukung kamu.
-
-aku cinta kamu 🤍`;
+`;
 
 let i=0;
 const letter=document.getElementById("letter");
